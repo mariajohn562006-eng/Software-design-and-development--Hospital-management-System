@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+hospital.db
+*.db-shm
+*.db-wal
+.venv/

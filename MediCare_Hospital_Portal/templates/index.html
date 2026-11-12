@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f766e" />
+  <title>MediCare — Hospital Management Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('assets', filename='styles.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('assets', filename='responsive.css') }}" />
+</head>
+<body>
+  <main class="auth-screen" id="authScreen">
+    <a class="brand auth-brand" href="#" aria-label="MediCare">
+      <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M13 4h6v9h9v6h-9v9h-6v-9H4v-6h9z"/></svg></span>
+      <span>Medi<span>Care</span><small>HOSPITAL PORTAL</small></span>
+    </a>
+    <section class="auth-card" id="authContent" aria-live="polite"></section>
+    <p class="auth-disclaimer">Demo portal only. Do not enter real patient-identifiable or sensitive medical information.</p>
+  </main>
+  <div class="app-shell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="MediCare home">
+        <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M13 4h6v9h9v6h-9v9h-6v-9H4v-6h9z"/></svg></span>
+        <span>Medi<span>Care</span><small>HOSPITAL PORTAL</small></span>
+      </a>
+      <div class="side-label" data-roles="patient">WORKSPACE</div>
+      <nav class="nav-list" data-roles="patient">
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon">⌂</span> Overview</button>
+        <button class="nav-item" data-view="doctors"><span class="nav-icon">✚</span> Find a doctor</button>
+        <button class="nav-item" data-view="appointments"><span class="nav-icon">▦</span> Appointments <span class="nav-count" id="appointmentCount">0</span></button>
+        <button class="nav-item" data-view="records"><span class="nav-icon">▤</span> Medical records</button>
+        <button class="nav-item" data-view="billing"><span class="nav-icon">₹</span> Billing & receipts</button>
+      </nav>
+      <div class="side-label doctor-label" data-roles="doctor">CLINICAL</div>
+      <nav class="nav-list" data-roles="doctor">
+        <button class="nav-item" data-view="doctor"><span class="nav-icon">♙</span> Doctor workspace</button>
+      </nav>
+      <div class="side-label" data-roles="admin">ADMINISTRATION</div>
+      <nav class="nav-list" data-roles="admin">
+        <button class="nav-item" data-view="admin"><span class="nav-icon">⚙</span> Admin dashboard</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">?</div><strong>Need assistance?</strong><p>Our care team is here to help you.</p><button id="helpButton">Contact support <span>↗</span></button></div>
+        <div class="user-mini"><div class="avatar">AS</div><div><strong id="sidebarUser">Alex Smith</strong><small id="sidebarRole">Patient account</small></div><button id="profileMenu" data-roles="patient" aria-label="Profile options">•••</button></div>
+      </div>
+    </aside>
+    <button class="sidebar-scrim" id="sidebarScrim" aria-label="Close menu"></button>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu" aria-expanded="false">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="pageCrumb">Overview</strong></div>
+        <div class="top-actions">
+          <button class="icon-button" id="notificationButton" data-roles="patient" aria-label="Notifications">♧<i></i></button>
+          <button class="secondary-btn sign-out-button" id="logoutButton" type="button">Sign out</button>
+          <div class="top-avatar" id="topAvatar">AS</div>
+        </div>
+      </header>
+      <div class="content" id="content"></div>
+      <footer>© 2026 MediCare Hospital Portal <span>Designed for better care, every day.</span></footer>
+    </main>
+  </div>
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  <div class="modal-backdrop" id="modalBackdrop">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </section>
+  </div>
+  <script src="{{ url_for('assets', filename='app.js') }}?v=9"></script>
+</body>
+</html>
